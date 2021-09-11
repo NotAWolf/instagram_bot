@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram Бот</title>
+    <script src="eel.js"></script>
+    <link rel="icon" type="image/svg" href="instagram.svg">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="group">
+        <input id="login" class="login" type="text" placeholder="Логин" required="">
+        <input id="password" class="login" type="text" placeholder="Пароль" required="">
+        <input id="url" class="user" type="text" placeholder="Ссылка на пользователя" required="">
+    </div>
+    <div class="group">
+        <button id="push_likes" class="bat1">Проставить лайки</button>
+        <button id="download" class="bat1">Скачать фото</button>
+    </div>
+    <div class="group">
+        <button id="follow" class="bat1">Подписаться на всех</button>
+        <button id="unfollow" class="bat1">Отписаться от всех</button>
+    </div>
+    <input id="hashtag" class="user" type="text" placeholder="Введите любой #" required="">
+    <button id="hashtag_likes" class="bat1">Поставить лайки по #</button>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        async function push_likes_user() {
+            let username = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let link = document.getElementById('url').value;
+            await eel.put_like(username, password, link);
+        }
+
+        async function follow_on_users() {
+            let username = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let link = document.getElementById('url').value;
+            await eel.get_followers(username, password, link);
+        }
+
+        async function download_photos() {
+            let username = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let link = document.getElementById('url').value;
+            await eel.download_content(username, password, link);
+        }
+
+        async function unfollow_from_users() {
+            let username = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let link = document.getElementById('url').value;
+            await eel.unfollow_users(username, password, link);
+        }
+
+        async function put_likes_hashtag() {
+            let username = document.getElementById('login').value;
+            let password = document.getElementById('password').value;
+            let hashtag = document.getElementById('hashtag').value;
+            await eel.like_by_hashtag(username, password, hashtag);
+        }
+
+        $('#push_likes').click(function() {
+            push_likes_user();
+        });
+
+        $('#download').click(function() {
+            download_photos();
+        });
+
+        $('#follow').click(function() {
+            follow_on_users();
+        });
+
+        $('#unfollow').click(function() {
+            unfollow_from_users();
+        });
+
+        $('#hashtag_likes').click(function() {
+            put_likes_hashtag();
+        });
+
+    </script>
+    <div id="info"></div>
+</body>
+</html>

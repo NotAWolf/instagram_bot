@@ -1,0 +1,58 @@
+* {
+    font-family: 'Roboto', sans-serif
+    box-sizing: border-box
+    font-weight: 300;
+}
+body {
+    background: #FF5F6D;
+    background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);
+    background: linear-gradient(to right, #FFC371, #FF5F6D);
+
+    color: white;
+}
+.login {
+
+    border: none;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px ;
+    color: white;
+    outline: none;
+    font-size: 30px;
+
+
+}
+.user {
+
+    border: none;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    outline: none;
+    width: 50%;
+    font-size: 20px;
+
+}
+.bat1 {
+    border: none;
+    margin: 15px;
+    background: #16BFFD;
+    background: -webkit-linear-gradient(to right, #CB3066, #16BFFD);
+    background: linear-gradient(to right, #CB3066, #16BFFD);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    color: white;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.bat1:hover{
+    opacity: .9;
+}
+.group {
+    text-align: center
+}
